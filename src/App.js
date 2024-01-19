@@ -1,25 +1,22 @@
-import Pokecard from './Pokecard.js';
+import React, { useEffect } from 'react';
+import generateIds from './generateIds.js';
+import requestPokes from './requestPokesInfo.js';
 import Pokedex from './Pokedex.js';
-import requestPokes from './requestPokes.js';
-import axios from 'axios';
 import defaults from './defaultPoke.js';
 import './App.css';
 import './Pokedex.css';
 import './Pokecard.css';
 
 
-//  const App = () => {
-//   const pokes = requestPokes();
-//   return <div>
-//     <Pokedex pokes={pokes} />
-//   </div>
-// }
-
- function App(){
+const App = () => {
+  const randomIds = generateIds();
+  const pokesInfo = requestPokes(randomIds);
   return <div>
     <Pokedex pokes={defaults} />
   </div>
 }
+
+
 
 
 
